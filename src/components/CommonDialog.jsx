@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
+import Transition from "./Transition";
 
 const CommonDialog = ({
   open = false,
@@ -20,6 +21,7 @@ const CommonDialog = ({
     <Dialog
       open={open}
       onClose={onClose}
+      TransitionComponent={Transition}
       PaperProps={{
         sx: { minWidth: { xs: "98%", md: "80%" } },
       }}
