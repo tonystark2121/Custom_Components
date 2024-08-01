@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import * as React from "react";
+import { ThemeProvider, createTheme } from "@mui/material";
+import { QueryClient } from "react-query";
+import { ThemeProvider as MaterialThemeProvider } from "@mui/material";
+import SlideDialog from "./pages/SlideDialog";
+
+export const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
+const theme = createTheme({
+  typography: {
+    fontFamily: ["Inter", "sans-serif"].join(","),
+  },
+  palette: {
+    primary: {
+      main: "#0C2F49",
+    },
+    secondary: {
+      main: "rgba(39, 137, 253, 1)",
+    },
+    text: {
+      primary: "#0C2F49",
+    },
+  },
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <MaterialThemeProvider theme={theme}>
+        <ThemeProvider theme={theme}>
+          <SlideDialog />
+        </ThemeProvider>
+      </MaterialThemeProvider>
+    </>
   );
 }
 
