@@ -3,7 +3,7 @@ import * as React from "react";
 import { ThemeProvider, createTheme } from "@mui/material";
 import { QueryClient } from "react-query";
 import { ThemeProvider as MaterialThemeProvider } from "@mui/material";
-import SlideDialog from "./pages/SlideDialog";
+import AppRoutes from "./app/routes/AppRoutes";
 
 export const queryClient = new QueryClient({
   defaultOptions: {
@@ -35,7 +35,7 @@ function App() {
     <>
       <MaterialThemeProvider theme={theme}>
         <ThemeProvider theme={theme}>
-          <SlideDialog />
+          <AppRoutes />
         </ThemeProvider>
       </MaterialThemeProvider>
     </>
